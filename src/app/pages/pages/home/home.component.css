@@ -1,0 +1,30 @@
+.custom-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.custom-select::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-image:
+    url('/svg/polygon.svg'),
+    linear-gradient(to top,
+      #FFBB00 0%,
+      #E3A701 48%,
+      #E3A701 54%,
+      #FFBB00 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 7px, cover;
+  border-radius: 4px;
+  pointer-events: none;
+  box-shadow: 0 0 8px 1px rgba(255, 187, 0, 0.6);
+}
