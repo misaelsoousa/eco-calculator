@@ -1,40 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --font-montserrat: "Montserrat", "sans-serif";
+  --font-alexandria: "Alexandria", "sans-serif";
   --color-main-green: #013906;
   --color-green: #93B396;
   --color-main-yellow: #FFBB00;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../public/fonts/Montserrat-Bold.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../public/fonts/Montserrat-Medium.woff2') format('woff2');
+  font-family: 'Alexandria';
+  src: url('../public/fonts/Alexandria/Alexandria-Regular.ttf') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../public/fonts/Montserrat-SemiBold.woff2') format('woff2');
-  font-weight: 600;
+  font-family: 'Alexandria';
+  src: url('../public/fonts/Alexandria/Alexandria-Bold.ttf') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../public/fonts/Montserrat-Bold.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Alexandria';
+  src: url('../public/fonts/Alexandria/Alexandria-Black.ttf') format('woff2');
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
+}
+
+* {
+  font-family: 'Alexandria', "sans-serif";
 }

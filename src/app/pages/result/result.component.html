@@ -5,24 +5,25 @@
         <div
           class="flex justify-center relative before:content-[''] before:h-[2px] before:rounded-full before:bg-black/5 before:w-1/4 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 after:content-[''] after:h-[2px] after:rounded-full after:bg-black/5 after:w-1/4 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2">
           <span
-            class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 font-montserrat before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
+            class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
             Comparação de emissões
           </span>
         </div>
       </div>
-      <div class="flex justify-between w-full items-center mt-24 lg:mt-16 flex-col lg:flex-row gap-20 lg:gap-0 ">
+      <div class="flex justify-between w-full items-center mt-24 lg:mt-16 flex-col lg:flex-row gap-20 lg:gap-0 "
+        id="comparacao-emissao">
         <div class="h-[220px] w-[340px] relative">
           <div
             class="bg-green h-[110px] w-[110px] border-[6px] border-white rounded-full flex justify-center items-center absolute top-0 left-1/2 -translate-1/2">
-            <svg-icon [name]="'truck'" />
+            <img src="svg/truck.svg" alt="" crossorigin="anonymous">
           </div>
           <div class="bg-green h-1/3 rounded-t-xl">
 
           </div>
-          <div class="bg-[#F5F5F5] h-1/3 justify-center flex items-center">
+          <div class="bg-[#F5F5F5] h-1/3 justify-center flex items-center font-medium">
             Rodoviário
           </div>
-          <div class="bg-[#EFEFEF] h-1/3 justify-center flex items-center rounded-b-xl">
+          <div class="bg-[#EFEFEF] h-1/3 justify-center flex items-center rounded-b-xl font-medium">
             4,07 Ton
           </div>
         </div>
@@ -31,24 +32,27 @@
           <div class="absolute top-0 left-1/2 -translate-1/2 flex gap-2">
             <div
               class="bg-green h-[70px] w-[70px] border-[6px] translate-y-1/4 border-white rounded-full flex justify-center items-center ">
-              <svg-icon [name]="'truck'" class="scale-[0.60]" />
+              <div class="scale-[0.60]">
+                <img src="svg/truck.svg" alt="" crossorigin="anonymous">
+              </div>
             </div>
             <div
               class="bg-green h-[110px] w-[110px] border-[6px] border-white rounded-full flex justify-center items-center ">
-              <svg-icon [name]="'barge'" />
+              <img src="svg/barge.svg" alt="" crossorigin="anonymous">
             </div>
             <div
               class="bg-green h-[70px] w-[70px] border-[6px] translate-y-1/4 border-white rounded-full flex justify-center items-center ">
-              <svg-icon [name]="'truck'" class="scale-[0.60]" />
+              <div class="scale-[0.60]">
+                <img src="svg/truck.svg" alt="" crossorigin="anonymous">
+              </div>
             </div>
           </div>
           <div class="bg-green h-1/3 rounded-t-xl">
-
           </div>
-          <div class="bg-[#F5F5F5] h-1/3 justify-center flex items-center">
+          <div class="bg-[#F5F5F5] h-1/3 justify-center flex items-center font-medium">
             Rodoviário
           </div>
-          <div class="bg-[#EFEFEF] h-1/3 justify-center flex items-center rounded-b-xl">
+          <div class="bg-[#EFEFEF] h-1/3 justify-center flex items-center rounded-b-xl font-medium">
             4,07 Ton
           </div>
         </div>
@@ -56,7 +60,7 @@
     </div>
     <div class="bg-white w-full rounded-xl px-10 lg:px-20 py-10 flex flex-col">
       <div class="flex items-center border-b-4 border-black/5 pb-9">
-        <p class="font-semibold w-3/5">O transporte da sua carga de <span class="text-main-yellow font-bold">1 TEU
+        <p class="font-medium w-3/5">O transporte da sua carga de <span class="text-main-yellow font-bold">1 TEU
           </span>
           pelos serviços da <span class="text-main-yellow font-bold">CMA CGM</span> Será responsável pela
           economia de:
@@ -64,16 +68,16 @@
         <div class="w-2/5 flex flex-col items-center">
           <div
             class="bg-green h-[110px] w-[110px] border-[15px] border-[#EFEFEF] rounded-full flex justify-center items-center">
-            <svg-icon [name]="'co2'" />
+            <img src="svg/co2.svg" alt="" crossorigin="anonymous">
           </div>
-          <p class="font-semibold mt-5 "><span class="text-main-yellow">3,53</span> Toneladas de <span
+          <p class="font-medium mt-5 "><span class="text-main-yellow">3,53</span> Toneladas de <span
               class="text-main-yellow">CO2</span></p>
         </div>
       </div>
-      <div class="mb-32">
+      <div class="mb-32" id="equivalenca">
         <div class="flex justify-center mt-16 mb-40">
           <span
-            class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 font-montserrat before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
+            class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
             Isso é equivalente a:
           </span>
         </div>
@@ -84,9 +88,9 @@
                 class="bg-[#F0EFEF] rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative">
                 <div
                   class="bg-[#A6CD8C] h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center">
-                  <svg-icon [name]="'tree'" />
+                  <img src="svg/tree.svg" alt="" crossorigin="anonymous">
                 </div>
-                <p class="font-semibold text-center">
+                <p class="font-medium text-center">
                   <span class="text-main-yellow font-bold">58 árvores</span> <br /> plantadas
                 </p>
               </div>
@@ -94,9 +98,9 @@
                 class="bg-[#F0EFEF] rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative">
                 <div
                   class="bg-[#9EB4D2] h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center">
-                  <svg-icon [name]="'glacier'" />
+                  <img src="svg/glacier.svg" alt="" crossorigin="anonymous">
                 </div>
-                <p class="font-semibold text-center">
+                <p class="font-medium text-center">
                   <span class="text-main-yellow font-bold">10,6 m² de gelo </span> marinho Ártico<br />
                   que deixará de derreter
                 </p>
@@ -107,9 +111,9 @@
                 class="bg-[#F0EFEF] rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative">
                 <div
                   class="bg-[#E4BB77] h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center">
-                  <svg-icon [name]="'bigtruck'" />
+                  <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
                 </div>
-                <p class="font-semibold text-center">
+                <p class="font-medium text-center">
                   <span class="text-main-yellow font-bold">1 caminhão </span> que<br /> deixará de circular nas vias
                 </p>
               </div>
@@ -117,9 +121,9 @@
                 class="bg-[#F0EFEF] rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative">
                 <div
                   class="bg-[#7F8486] h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center">
-                  <svg-icon [name]="'feet'" />
+                  <img src="svg/feet.svg" alt="" crossorigin="anonymous">
                 </div>
-                <p class="font-semibold text-center">
+                <p class="font-medium text-center">
                   <span class="text-main-yellow font-bold">3 créditos </span>de <br /> carbono
                 </p>
               </div>
@@ -133,7 +137,7 @@
         <div
           class="flex justify-center relative before:content-[''] before:h-[2px] before:rounded-full before:bg-black/5 before:w-1/5 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 after:content-[''] after:h-[2px] after:rounded-full after:bg-black/5 after:w-1/5 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2">
           <span
-            class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 font-montserrat before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
+            class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
             detalhamento das emissões
           </span>
         </div>
@@ -145,27 +149,27 @@
             Rodoviário
           </div>
           <div class="flex md:justify-between px-10 lg:px-20 py-5 flex-col md:flex-row items-center">
-            <div class="flex items-center gap-1 font-semibold md:w-1/3">
+            <div class="flex items-center gap-1 font-medium md:w-1/3">
               <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                <svg-icon [name]="'home'" />
+                <img src="svg/home.svg" alt="" crossorigin="anonymous">
               </div>
               Mairinque - SP
             </div>
             <div class="flex flex-col items-center w-1/3">
-              <svg-icon [name]="'bigtruck'" [color]="'#013906'" />
-              <svg-icon [name]="'long-arrow'" class="-mt-3" />
+              <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+              <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
             </div>
-            <div class="flex items-center gap-1 font-semibold md:w-1/3 break-words">
+            <div class="flex items-center gap-1 font-medium md:w-1/3 break-words">
               <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                <svg-icon [name]="'home'" />
+                <img src="svg/home.svg" alt="" crossorigin="anonymous">
               </div>
               São Gonçalo do Amarante - Ce
             </div>
           </div>
-          <div class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-semibold">
+          <div class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium">
             Transporte Rodoviário
           </div>
-          <div class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-b-xl font-semibold">
+          <div class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-b-xl font-medium">
             4,7 ton
           </div>
         </div>
@@ -177,83 +181,83 @@
           <div class="flex justify-between flex-col lg:flex-row">
             <div class="lg:w-1/3 ">
               <div class="flex h-[140px] px-2 lg:border-r-[1px] border-black/10 py-5">
-                <div class="flex flex-col text-center items-center gap-1 font-semibold w-2/5 break-words text-sm">
+                <div class="flex flex-col text-center items-center gap-1 font-medium w-2/5 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <svg-icon [name]="'home'" />
+                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
                   Mairinque - SP
                 </div>
                 <div class="flex flex-col items-center w-1/5 scale-90">
-                  <svg-icon [name]="'bigtruck'" [color]="'#013906'" />
-                  <svg-icon [name]="'long-arrow'" class="-mt-3" />
+                  <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+                  <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
                 </div>
-                <div class="flex flex-col text-center  items-center gap-1 font-semibold w-2/5 break-words text-sm">
+                <div class="flex flex-col text-center  items-center gap-1 font-medium w-2/5 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <svg-icon [name]="'home'" />
+                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
                   Porto de Santos
                 </div>
               </div>
               <div
-                class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-semibold border-r-[1px] border-white">
+                class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium border-r-[1px] border-white">
                 Transporte Rodoviário
               </div>
               <div
-                class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-bl-xl font-semibold border-r-[1px] border-white">
+                class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-bl-xl font-medium border-r-[1px] border-white">
                 4,7 ton
               </div>
             </div>
             <div class="lg:w-1/3 ">
               <div class=" flex h-[140px] px-2 py-5 lg:border-r-[1px] border-black/10">
-                <div class="flex flex-col text-center items-center gap-1 font-semibold w-1/3 break-words text-sm">
+                <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <svg-icon [name]="'home'" />
+                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
                   Porto de Santos
                 </div>
                 <div class="flex flex-col items-center w-1/3  scale-90">
-                  <svg-icon [name]="'bigtruck'" [color]="'#013906'" />
-                  <svg-icon [name]="'long-arrow'" class="-mt-3" />
+                  <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+                  <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
                 </div>
-                <div class="flex flex-col text-center items-center gap-1 font-semibold w-1/3 break-words text-sm">
+                <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <svg-icon [name]="'home'" />
+                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
                   Porto de Pecém
                 </div>
               </div>
               <div
-                class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-semibold border-r-[1px] border-white">
+                class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium border-r-[1px] border-white">
                 Transporte Rodoviário
               </div>
               <div
-                class="bg-[#EFEFEF] h-[73px] justify-center flex items-center font-semibold border-r-[1px] border-white">
+                class="bg-[#EFEFEF] h-[73px] justify-center flex items-center font-medium border-r-[1px] border-white">
                 4,7 ton
               </div>
             </div>
             <div class="lg:w-1/3">
               <div class="flex h-[140px] px-2 py-5">
-                <div class="flex flex-col text-center items-center gap-1 font-semibold w-1/3 break-words text-sm">
+                <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <svg-icon [name]="'home'" />
+                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
                   Porto de Pecém
                 </div>
                 <div class="flex flex-col items-center w-1/3  scale-90">
-                  <svg-icon [name]="'bigtruck'" [color]="'#013906'" />
-                  <svg-icon [name]="'long-arrow'" class="-mt-3" />
+                  <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+                  <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
                 </div>
-                <div class="flex flex-col text-center items-center gap-1 font-semibold w-1/3 break-words text-sm">
+                <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <svg-icon [name]="'home'" />
+                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
                   São Gonçalo do Amarante - Ce
                 </div>
               </div>
-              <div class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-semibold">
+              <div class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium">
                 Transporte Rodoviário
               </div>
-              <div class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-br-xl font-semibold">
+              <div class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-br-xl font-medium">
                 4,7 ton
               </div>
             </div>
