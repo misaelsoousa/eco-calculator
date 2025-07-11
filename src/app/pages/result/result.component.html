@@ -3,16 +3,17 @@
     <div class="bg-white w-full rounded-xl px-20 pt-10 pb-20 flex flex-col">
       <div class="px-5">
         <div
-          class="flex justify-center relative before:content-[''] before:h-[2px] before:rounded-full before:bg-black/5 before:w-1/4 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 after:content-[''] after:h-[2px] after:rounded-full after:bg-black/5 after:w-1/4 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2">
+          class="flex justify-center relative before:content-[''] after:hidden lg:after:block before:hidden lg:before:block before:h-[2px] before:rounded-full before:bg-black/5 before:w-1/4 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 after:content-[''] after:h-[2px] after:rounded-full after:bg-black/5 after:w-1/4 after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2">
           <span
-            class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
+            class="font-bold text-2xl uppercase text-center w-fit relative before:content-[''] before:h-1 before:rounded-full before:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2 ">
             Comparação de emissões
           </span>
         </div>
       </div>
       <div class="flex justify-between w-full items-center mt-24 lg:mt-16 flex-col lg:flex-row gap-20 lg:gap-0 "
-        id="comparacao-emissao">
-        <div class="h-[220px] w-[340px] relative">
+        id="minhaSection">
+
+        <div class="h-[220px] w-[340px] relative ">
           <div
             class="bg-green h-[110px] w-[110px] border-[6px] border-white rounded-full flex justify-center items-center absolute top-0 left-1/2 -translate-1/2">
             <img src="svg/truck.svg" alt="" crossorigin="anonymous">
@@ -24,10 +25,10 @@
             Rodoviário
           </div>
           <div class="bg-[#EFEFEF] h-1/3 justify-center flex items-center rounded-b-xl font-medium">
-            4,07 Ton
+            {{ resultado?.relatorio?.emissaoRodoviario }} Ton
           </div>
         </div>
-        <img src="img/x.png" alt="X" class="h-[100px] pointer-events-none select-none">
+        <img src="img/x.png" alt="X" class="h-[100px] pointer-events-none select-none" id="minhaImagem">
         <div class="h-[220px] w-[340px] relative">
           <div class="absolute top-0 left-1/2 -translate-1/2 flex gap-2">
             <div
@@ -53,14 +54,15 @@
             Rodoviário
           </div>
           <div class="bg-[#EFEFEF] h-1/3 justify-center flex items-center rounded-b-xl font-medium">
-            4,07 Ton
+            {{ resultado?.relatorio?.emissaoMaritimo }} Ton
           </div>
         </div>
       </div>
     </div>
     <div class="bg-white w-full rounded-xl px-10 lg:px-20 py-10 flex flex-col">
       <div class="flex items-center border-b-4 border-black/5 pb-9">
-        <p class="font-medium w-3/5">O transporte da sua carga de <span class="text-main-yellow font-bold">1 TEU
+        <p class="font-medium w-3/5">O transporte da sua carga de <span class="text-main-yellow font-bold">{{
+            resultado?.carregamentoContainer }}
           </span>
           pelos serviços da <span class="text-main-yellow font-bold">CMA CGM</span> Será responsável pela
           economia de:
@@ -70,8 +72,8 @@
             class="bg-green h-[110px] w-[110px] border-[15px] border-[#EFEFEF] rounded-full flex justify-center items-center">
             <img src="svg/co2.svg" alt="" crossorigin="anonymous">
           </div>
-          <p class="font-medium mt-5 "><span class="text-main-yellow">3,53</span> Toneladas de <span
-              class="text-main-yellow">CO2</span></p>
+          <p class="font-medium mt-5 text-center"><span class="text-main-yellow">{{ resultado?.relatorio?.economiaCo2
+              }}</span> Toneladas de <span class="text-main-yellow">CO2</span></p>
         </div>
       </div>
       <div class="mb-32" id="equivalenca">
@@ -91,7 +93,8 @@
                   <img src="svg/tree.svg" alt="" crossorigin="anonymous">
                 </div>
                 <p class="font-medium text-center">
-                  <span class="text-main-yellow font-bold">58 árvores</span> <br /> plantadas
+                  <span class="text-main-yellow font-bold">{{ resultado?.relatorio?.equivalencias?.arvoresPlantadas }}
+                    árvores</span> <br /> plantadas
                 </p>
               </div>
               <div
@@ -101,7 +104,8 @@
                   <img src="svg/glacier.svg" alt="" crossorigin="anonymous">
                 </div>
                 <p class="font-medium text-center">
-                  <span class="text-main-yellow font-bold">10,6 m² de gelo </span> marinho Ártico<br />
+                  <span class="text-main-yellow font-bold">{{ resultado?.relatorio?.equivalencias?.geloArctico }}
+                    m² de gelo </span> marinho Ártico<br />
                   que deixará de derreter
                 </p>
               </div>
@@ -114,7 +118,8 @@
                   <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
                 </div>
                 <p class="font-medium text-center">
-                  <span class="text-main-yellow font-bold">1 caminhão </span> que<br /> deixará de circular nas vias
+                  <span class="text-main-yellow font-bold">{{ resultado?.relatorio?.equivalencias?.caminhoesRetirados }}
+                    caminhão </span> que<br /> deixará de circular nas vias
                 </p>
               </div>
               <div
@@ -124,7 +129,8 @@
                   <img src="svg/feet.svg" alt="" crossorigin="anonymous">
                 </div>
                 <p class="font-medium text-center">
-                  <span class="text-main-yellow font-bold">3 créditos </span>de <br /> carbono
+                  <span class="text-main-yellow font-bold">{{ resultado?.relatorio?.equivalencias?.creditosCarbono }}
+                    créditos </span>de <br /> carbono
                 </p>
               </div>
             </div>
@@ -153,24 +159,24 @@
               <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
                 <img src="svg/home.svg" alt="" crossorigin="anonymous">
               </div>
-              Mairinque - SP
+              {{ resultado?.relatorio?.etapas[0].origem }}
             </div>
             <div class="flex flex-col items-center w-1/3">
-              <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+              <img src="svg/bigtruck-green.svg" alt="" crossorigin="anonymous">
               <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
             </div>
             <div class="flex items-center gap-1 font-medium md:w-1/3 break-words">
               <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
                 <img src="svg/home.svg" alt="" crossorigin="anonymous">
               </div>
-              São Gonçalo do Amarante - Ce
+              {{ resultado?.relatorio?.etapas[2].destino }}
             </div>
           </div>
           <div class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium">
             Transporte Rodoviário
           </div>
           <div class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-b-xl font-medium">
-            4,7 ton
+            {{ resultado?.relatorio?.emissaoRodoviario }} ton
           </div>
         </div>
         <div>
@@ -178,99 +184,420 @@
             class="text-white font-bold h-[73px] bg-main-green rounded-t-xl flex justify-center items-center text-xl">
             Marítimo
           </div>
-          <div class="flex justify-between flex-col lg:flex-row">
+          <div class="flex justify-between flex-col lg:flex-row max-h-[150px]">
             <div class="lg:w-1/3 ">
-              <div class="flex h-[140px] px-2 lg:border-r-[1px] border-black/10 py-5">
+              <div class="flex h-full px-2 lg:border-r-[1px] border-black/10 py-5 justify-between">
                 <div class="flex flex-col text-center items-center gap-1 font-medium w-2/5 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
                     <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
-                  Mairinque - SP
+                  {{ resultado?.relatorio?.etapas[0].origem }}
                 </div>
-                <div class="flex flex-col items-center w-1/5 scale-90">
-                  <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+                <div class="flex flex-col items-center">
+                  <img src="svg/bigtruck-green.svg" alt="" crossorigin="anonymous">
                   <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
                 </div>
                 <div class="flex flex-col text-center  items-center gap-1 font-medium w-2/5 break-words text-sm">
-                  <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
+                  <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                    <img src="svg/port.svg" alt="" crossorigin="anonymous">
                   </div>
-                  Porto de Santos
+                  {{ resultado?.relatorio?.etapas[0].destino }}
                 </div>
               </div>
               <div
                 class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium border-r-[1px] border-white">
-                Transporte Rodoviário
+                Transporte {{ resultado?.relatorio?.etapas[0].tipo }}
               </div>
               <div
                 class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-bl-xl font-medium border-r-[1px] border-white">
-                4,7 ton
+                {{ resultado?.relatorio?.etapas[0].emissaoCo2 }} ton
               </div>
             </div>
             <div class="lg:w-1/3 ">
-              <div class=" flex h-[140px] px-2 py-5 lg:border-r-[1px] border-black/10">
+              <div class=" flex h-full px-2 py-5 lg:border-r-[1px] border-black/10 justify-between">
                 <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
-                  <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
+                  <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                    <img src="svg/port.svg" alt="" crossorigin="anonymous">
                   </div>
-                  Porto de Santos
+                  {{ resultado?.relatorio?.etapas[2].origem }}
                 </div>
-                <div class="flex flex-col items-center w-1/3  scale-90">
-                  <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
-                  <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
+                <div class="flex flex-col items-center justify-center ">
+                  <div class="flex flex-col items-center">
+                    <img src="svg/ship.svg" alt="" crossorigin="anonymous">
+                    <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
+                  </div>
                 </div>
                 <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
-                  <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
+                  <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                    <img src="svg/port.svg" alt="" crossorigin="anonymous">
                   </div>
-                  Porto de Pecém
+                  {{ resultado?.relatorio?.etapas[2].destino }}
                 </div>
               </div>
-              <div
-                class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium border-r-[1px] border-white">
-                Transporte Rodoviário
+              <div class="flex border-b-[1px] border-white">
+                <div
+                  class="bg-[#EFEFEF] w-full px-5 h-[73px] text-center justify-center flex items-center font-medium border-r-[1px] border-white">
+                  Atividade
+                  Portuária
+                </div>
+                <div
+                  class="bg-[#EFEFEF] w-full px-5 h-[73px] text-center justify-center flex items-center font-medium border-r-[1px] border-white">
+                  Cabotagem
+                </div>
               </div>
-              <div
-                class="bg-[#EFEFEF] h-[73px] justify-center flex items-center font-medium border-r-[1px] border-white">
-                4,7 ton
+              <div class="flex border-b-[1px] border-white">
+                <div
+                  class="bg-[#EFEFEF] w-full px-5 h-[73px] text-center justify-center flex items-center font-medium border-r-[1px] border-white">
+                  {{ resultado?.relatorio?.etapas[1].emissaoCo2 }} ton
+                </div>
+                <div
+                  class="bg-[#EFEFEF] w-full px-5 h-[73px] text-center justify-center flex items-center font-medium border-r-[1px] border-white">
+                  {{ resultado?.relatorio?.etapas[2].emissaoCo2 }} ton
+                </div>
               </div>
             </div>
             <div class="lg:w-1/3">
-              <div class="flex h-[140px] px-2 py-5">
+              <div class="flex h-full px-2 py-5 justify-between">
                 <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
-                  <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
-                    <img src="svg/home.svg" alt="" crossorigin="anonymous">
+                  <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                    <img src="svg/port.svg" alt="" crossorigin="anonymous">
                   </div>
-                  Porto de Pecém
+                  {{ resultado?.relatorio?.etapas[3].origem }}
                 </div>
-                <div class="flex flex-col items-center w-1/3  scale-90">
-                  <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+                <div class="flex flex-col items-center ">
+                  <img src="svg/bigtruck-green.svg" alt="" crossorigin="anonymous">
                   <img src="svg/long-arrow.svg" alt="" crossorigin="anonymous">
                 </div>
                 <div class="flex flex-col text-center items-center gap-1 font-medium w-1/3 break-words text-sm">
                   <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
                     <img src="svg/home.svg" alt="" crossorigin="anonymous">
                   </div>
-                  São Gonçalo do Amarante - Ce
+                  {{ resultado?.relatorio?.etapas[3].destino }}
                 </div>
               </div>
               <div class="bg-[#F5F5F5] h-[73px] justify-center flex items-center font-medium">
-                Transporte Rodoviário
+                Transporte {{ resultado?.relatorio?.etapas[3].tipo }}
               </div>
               <div class="bg-[#EFEFEF] h-[73px] justify-center flex items-center rounded-br-xl font-medium">
-                4,7 ton
+                {{ resultado?.relatorio?.etapas[3].emissaoCo2 }} ton
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex flex-col items-center gap-6">
+      <div class="flex flex-col items-center gap-6 mt-10">
         <p>Serviços mais rápidos:</p>
         <span class="text-2xl font-bold bg-[#F0EFEF] py-6 uppercase px-14 rounded-xl text-center">
           Braco ou Plata
         </span>
-        <app-main-button class="mt-10" />
+        <app-main-button class="mt-10" (click)="exportPdf()">
+          Gerar PDF
+        </app-main-button>
       </div>
+    </div>
+  </div>
+  <div *ngIf="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 bg-opacity-40">
+    <div class="text-center">
+      <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-main-yellow mx-auto mb-6"></div>
+      <p class="text-2xl font-bold text-white drop-shadow">Gerando relatório...</p>
+    </div>
+  </div>
+  <div class="rounded-4xl max-w-[1150px] mx-auto"
+    style="background-color: #FFFFFF; position: absolute; left: -9999px; top: 0;" id="pdf-relatorio">
+    <div class="items-center flex justify-between px-12 py-9">
+      <img src="img/kbrtec.png" alt="" class="h-16">
+      <div class="flex gap-9">
+        <img src="img/pdf/eco.png" alt="" class="h-9">
+        <span class="font-bold font-alexandria uppercase tracking-widest text-2xl" style="color: #013906;">Eco
+          calculator</span>
+      </div>
+    </div>
+    <div class=" py-5 flex items-center justify-center gap-5" style="background-color: #013906;">
+      <h2 class="font-bold text-2xl uppercase font-alexandria mb-4" style="color: #FFFFFF;">Comparação de emissão</h2>
+    </div>
+    <div
+      class="flex justify-between w-full px-12 py-9 items-center mt-24 lg:mt-16 flex-col lg:flex-row gap-20 lg:gap-0 "
+      id="minhaSection">
+
+      <div class="h-[220px] w-[340px] relative ">
+        <div
+          class="h-[110px] w-[110px] rounded-full flex justify-center items-center absolute top-0 left-1/2 -translate-1/2"
+          style="background-color: #93B396; border: 6px solid #FFFFFF;">
+          <img src="svg/truck.svg" alt="" crossorigin="anonymous">
+        </div>
+        <div class="h-1/3 rounded-t-xl" style="background-color: #93B396;">
+
+        </div>
+        <div class=" h-1/3 justify-center flex items-center font-medium" style="background-color: #F5F5F5;">
+          Rodoviário
+        </div>
+        <div class="h-1/3 justify-center flex items-center rounded-b-xl font-medium" style="background-color: #EFEFEF;">
+          {{ resultado?.relatorio?.emissaoRodoviario }} Ton
+        </div>
+      </div>
+      <img src="img/x.png" alt="X" class="h-[100px] pointer-events-none select-none" id="minhaImagem">
+      <div class="h-[220px] w-[340px] relative">
+        <div class="absolute top-0 left-1/2 -translate-1/2 flex gap-2">
+          <div class="h-[70px] w-[70px] border-[6px] translate-y-1/4 rounded-full flex justify-center items-center "
+            style="background-color: #93b396;  border: 6px solid #FFFFFF;">
+            <div class="scale-[0.60]">
+              <img src="svg/truck.svg" alt="" crossorigin="anonymous">
+            </div>
+          </div>
+          <div class=" h-[110px] w-[110px] border-[6px] rounded-full flex justify-center items-center "
+            style="background-color: #93b396;  border: 6px solid #FFFFFF;">
+            <img src="svg/barge.svg" alt="" crossorigin="anonymous">
+          </div>
+          <div class=" h-[70px] w-[70px] border-[6px] translate-y-1/4  rounded-full flex justify-center items-center "
+            style="background-color: #93b396;  border: 6px solid #FFFFFF;">
+            <div class="scale-[0.60]">
+              <img src="svg/truck.svg" alt="" crossorigin="anonymous">
+            </div>
+          </div>
+        </div>
+        <div class=" h-1/3 rounded-t-xl" style="background-color: #93b396;">
+        </div>
+        <div class=" h-1/3 justify-center flex items-center font-medium" style="background-color: #F5F5F5;">
+          Marítimo
+        </div>
+        <div class=" h-1/3 justify-center flex items-center rounded-b-xl font-medium"
+          style="background-color: #EFEFEF; ">
+          {{ resultado?.relatorio?.emissaoMaritimo }} Ton
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center border-b-4 pb-9 justify-between mx-12"
+      style="border-bottom: 4px solid rgba(0, 0, 0, 0.05);">
+      <p class="font-medium text-xl w-3/5">O transporte da sua carga de <span class=" font-bold"
+          style="color: #FFBB00; ">{{ resultado?.carregamentoContainer }}
+        </span>
+        pelos serviços da <span class=" font-bold" style="color: #FFBB00; ">CMA CGM</span> Será responsável pela
+        economia de:
+      </p>
+      <div class="w-fit flex flex-col px-16 items-center">
+        <div class=" h-[110px] w-[110px] border-[15px] rounded-full flex justify-center items-center"
+          style="background-color: #93B396; border: #EFEFEF ;">
+          <img src="svg/co2.svg" alt="" crossorigin="anonymous">
+        </div>
+        <p class="font-medium mt-5 text-xl"><span style="color: #FFBB00; ">{{ resultado?.relatorio?.economiaCo2
+            }}</span> Toneladas de <span style="color: #FFBB00; ">CO2</span></p>
+      </div>
+    </div>
+    <div class="pb-16" id="equivalenca">
+      <div class="flex justify-center mt-16 mb-40">
+        <span
+          class="font-bold text-2xl uppercase w-fit relative before:content-[''] before:h-1 before:rounded-full abefore:bg-main-yellow before:w-1/3 before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2">
+          Isso é equivalente a:
+        </span>
+      </div>
+      <div>
+        <div class="flex flex-col items-center lg:gap-24 gap-12 ">
+          <div class="flex gap-12 lg:gap-6 flex-col sm:flex-row">
+            <div class=" rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative"
+              style="background-color: #F0EFEF; ">
+              <div
+                class=" h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center"
+                style="background-color: #A6CD8C; ">
+                <img src="svg/tree.svg" alt="" crossorigin="anonymous">
+              </div>
+              <p class="font-medium text-center">
+                <span class="font-bold" style="color: #FFBB00;">{{ resultado?.relatorio?.equivalencias?.arvoresPlantadas
+                  }} árvores</span> <br /> plantadas
+              </p>
+            </div>
+            <div class="rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative"
+              style="background-color: #F0EFEF;">
+              <div
+                class=" h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center"
+                style="background-color: #9EB4D2;">
+                <img src="svg/glacier.svg" alt="" crossorigin="anonymous">
+              </div>
+              <p class="font-medium text-center">
+                <span class=" font-bold" style="color: #FFBB00;">{{ resultado?.relatorio?.equivalencias?.geloArctico
+                  }} m² de gelo </span> marinho Ártico<br />
+                que deixará de derreter
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-12 lg:gap-6 flex-col sm:flex-row">
+            <div class=" rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative"
+              style="background-color: #F0EFEF;">
+              <div
+                class=" h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center"
+                style="background-color: #E4BB77;">
+                <img src="svg/bigtruck.svg" alt="" crossorigin="anonymous">
+              </div>
+              <p class="font-medium text-center">
+                <span class="font-bold" style="color: #FFBB00;">{{
+                  resultado?.relatorio?.equivalencias?.caminhoesRetirados
+                  }} caminhão </span> que<br /> deixará de
+                circular nas vias
+              </p>
+            </div>
+            <div class=" rounded-2xl w-[350px] sm:w-[280px] h-[140px] flex justify-center items-center relative"
+              style="background-color: #F0EFEF;">
+              <div
+                class="h-[85px] w-[85px] -translate-1/2 absolute top-0 left-1/2  rounded-full flex justify-center items-center"
+                style="background-color: #7F8486;">
+                <img src="svg/feet.svg" alt="" crossorigin="anonymous">
+              </div>
+              <p class="font-medium text-center">
+                <span class=" font-bold" style="color: #FFBB00;">{{
+                  resultado?.relatorio?.equivalencias?.creditosCarbono
+                  }} créditos </span>de <br /> carbono
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rounded-4xl max-w-[1150px] mx-auto rota-pdf pb-32 " id="pdf-rota"
+    style="position: absolute; right: -9999px; top: -9999px;">
+    <div class="relative">
+      <div class="img-wrapper relative">
+        <img src="img/pdf/CMA.png" alt="" class="img-cma">
+      </div>
+      <div class="absolute text-white flex items-center left-1/2 top-1/2 -translate-1/2 z-20 gap-8">
+        <img src="img/pdf/kbrtec-white.png" alt="" class="h-16">
+        <div class="flex z-20 gap-2">
+          <span class="uppercase text-2xl rota relative pb-5 font-bold">Rota:</span>
+          <p class=" font-bold">Braco ou <br />Plata</p>
+        </div>
+      </div>
+    </div>
+    <div class="px-56">
+      <div class="h-[250px] w-full mt-32 relative ">
+        <div
+          class="h-[110px] w-[110px] rounded-full flex justify-center items-center absolute top-0 left-1/2 -translate-1/2"
+          style="background-color: #93B396; border: 6px solid #FFFFFF;">
+          <img src="svg/truck.svg" alt="" crossorigin="anonymous">
+          <img src="img/pdf/arrowpdf.png" alt="" class="absolute -bottom-14 h-6">
+        </div>
+        <div class=" rounded-t-xl" style="background-color: #F2FAF3;">
+          <div class="flex justify-between py-5">
+            <div class="flex items-center flex-col gap-1 font-medium md:w-1/3">
+              <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                <img src="svg/home.svg" alt="" crossorigin="anonymous">
+              </div>
+              {{ resultado?.relatorio?.etapas[0].origem }}
+            </div>
+            <div class="flex items-center flex-col gap-1 font-medium md:w-1/3">
+              <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                <img src="svg/port.svg" alt="" crossorigin="anonymous">
+              </div>
+              {{ resultado?.relatorio?.etapas[0].destino }}
+            </div>
+          </div>
+        </div>
+        <div class=" h-[73px] justify-center flex items-center font-medium uppercase"
+          style="background-color: #013906; color: white;">
+          Transporte Porta-a-Porto
+        </div>
+        <div class="h-[73px]  relative">
+          <div class="h-full justify-center flex items-center rounded-b-xl font-medium"
+            style="background-color: #F5F4F4;">
+            {{ resultado?.relatorio?.etapas[0].emissaoCo2 }} Ton
+          </div>
+          <div class="rounded-l-2xl w-fit px-3 py-3 absolute left-0 -translate-x-full bottom-0"
+            style="background-color: #C9DACB;">
+            <img src="img/pdf/co2-green.png" alt="" class="h-12">
+          </div>
+        </div>
+      </div>
+      <div class="h-[250px] w-full mt-32 relative ">
+        <div
+          class="h-[110px] w-[110px] rounded-full flex justify-center items-center absolute top-0 left-1/2 -translate-1/2"
+          style="background-color: #93B396; border: 6px solid #FFFFFF;">
+          <img src="svg/barge.svg" alt="" crossorigin="anonymous">
+          <img src="img/pdf/arrowpdf.png" alt="" class="absolute -bottom-14 h-6">
+        </div>
+        <div class=" rounded-t-xl" style="background-color: #F2FAF3;">
+          <div class="flex justify-between py-5">
+            <div class="flex items-center flex-col gap-1 font-medium md:w-1/3">
+              <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                <img src="svg/port.svg" alt="" crossorigin="anonymous">
+              </div>
+              {{ resultado?.relatorio?.etapas[2].origem }}
+            </div>
+            <div class="flex items-center flex-col gap-1 font-medium md:w-1/3">
+              <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                <img src="svg/port.svg" alt="" crossorigin="anonymous">
+              </div>
+              {{ resultado?.relatorio?.etapas[2].destino }}
+            </div>
+          </div>
+        </div>
+        <div class="flex ">
+          <div class=" h-[73px] justify-center flex items-center font-medium  w-1/2 border-r-[1px] "
+            style="background-color: #013906; color: white;">
+            Atividade Portuária
+          </div>
+          <div class=" h-[73px] justify-center flex items-center font-medium  w-1/2"
+            style="background-color: #013906; color: white;">
+            Cabotagem
+          </div>
+        </div>
+        <div class="h-[73px]  relative">
+          <div class="flex h-full w-full justify-between">
+            <div class="h-full justify-center flex items-center rounded-b-xl font-medium w-full  text-center"
+              style="background-color: #F5F4F4;">
+              {{ resultado?.relatorio?.etapas[1].emissaoCo2 }} Ton
+            </div>
+            <div class="h-full justify-center flex items-center rounded-b-xl font-medium w-full text-center"
+              style="background-color: #F5F4F4;">
+              {{ resultado?.relatorio?.etapas[2].emissaoCo2 }} Ton
+            </div>
+          </div>
+          <div class="rounded-l-2xl w-fit px-3 py-3 absolute left-0 -translate-x-full bottom-0"
+            style="background-color: #C9DACB;">
+            <img src="img/pdf/co2-green.png" alt="" class="h-12">
+          </div>
+        </div>
+      </div>
+      <div class="h-[250px] w-full mt-32 relative ">
+        <div
+          class="h-[110px] w-[110px] rounded-full flex justify-center items-center absolute top-0 left-1/2 -translate-1/2"
+          style="background-color: #93B396; border: 6px solid #FFFFFF;">
+          <img src="svg/truck.svg" alt="" crossorigin="anonymous">
+          <img src="img/pdf/arrowpdf.png" alt="" class="absolute -bottom-14 h-6">
+        </div>
+        <div class=" rounded-t-xl" style="background-color: #F2FAF3;">
+          <div class="flex justify-between py-5">
+            <div class="flex items-center flex-col gap-1 font-medium md:w-1/3">
+              <div class="bg-[#93B396] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                <img src="svg/port.svg" alt="" crossorigin="anonymous">
+              </div>
+              {{ resultado?.relatorio?.etapas[3].origem }}
+            </div>
+            <div class="flex items-center flex-col gap-1 font-medium md:w-1/3">
+              <div class="bg-[#7F8486] min-h-[60px] min-w-[60px] rounded-full flex justify-center items-center ">
+                <img src="svg/home.svg" alt="" crossorigin="anonymous">
+              </div>
+              {{ resultado?.relatorio?.etapas[3].destino }}
+            </div>
+          </div>
+        </div>
+        <div class=" h-[73px] justify-center flex items-center font-medium uppercase"
+          style="background-color: #013906; color: white;">
+          Transporte Porto-a-Porta
+        </div>
+        <div class="h-[73px]  relative">
+          <div class="h-full justify-center flex items-center rounded-b-xl font-medium"
+            style="background-color: #F5F4F4;">
+            {{ resultado?.relatorio?.etapas[3].emissaoCo2 }} Ton
+          </div>
+          <div class="rounded-l-2xl w-fit px-3 py-3 absolute left-0 -translate-x-full bottom-0"
+            style="background-color: #C9DACB;">
+            <img src="img/pdf/co2-green.png" alt="" class="h-12">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-[110px] w-[110px] rounded-full flex justify-center items-center absolute top-0 left-1/2 -translate-1/2"
+      style="background-color: #93B396; border: 6px solid #FFFFFF;">
+      <img src="svg/truck.svg" alt="" crossorigin="anonymous">
     </div>
   </div>
 </section>

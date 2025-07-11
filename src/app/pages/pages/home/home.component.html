@@ -1,15 +1,34 @@
 <section class="pt-12">
   <div class="max-w-[1150px] px-5 mx-auto flex flex-col gap-5">
-    <div class="bg-white w-full rounded-xl px-8 lg:px-16 py-16 flex md:flex-row flex-col justify-between items-end">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="bg-white w-full rounded-xl px-8 lg:px-16 py-16 flex justify-center items-center">
+      <div class="text-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-main-yellow mx-auto mb-4"></div>
+        <p class="text-lg font-medium">Carregando municípios...</p>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="bg-red-50 border border-red-200 w-full rounded-xl px-8 lg:px-16 py-8">
+      <div class="text-center">
+        <p class="text-red-600 font-medium mb-4">{{ error }}</p>
+        <button (click)="carregarMunicipios()"
+          class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
+          Tentar Novamente
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="!loading && !error"
+      class="bg-white w-full rounded-xl px-8 lg:px-16 py-16 flex md:flex-row flex-col justify-between items-end">
       <div class="w-full flex flex-col gap-4">
         <div class="flex gap-2 items-end font-bold">
           <svg-icon [name]="'pin'" />
           Cidade de origem
         </div>
-        <div class="custom-select relative w-full">
-          <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-medium">
-            <option>Mairinque - SP</option>
-          </select>
+        <div class="w-full ">
+          <app-autocomplete [options]="municipios" placeholder="Digite para buscar cidade de origem..."
+            [(ngModel)]="municipioOrigem"></app-autocomplete>
         </div>
       </div>
       <div class="p-4 justify-center flex w-full md:w-fit rotate-90 md:rotate-0">
@@ -20,19 +39,20 @@
           <svg-icon [name]="'pin'" />
           Cidade de Destino
         </div>
-        <div class="custom-select relative w-full">
-          <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-medium">
-            <option>São Gonçalo do Amarante - CE</option>
-          </select>
+        <div class="w-full">
+          <app-autocomplete [options]="municipios" placeholder="Digite para buscar cidade de destino..."
+            [(ngModel)]="municipioDestino"></app-autocomplete>
         </div>
       </div>
     </div>
+
     <div class="bg-white w-full rounded-xl px-9 py-10 flex flex-col">
       <div class="px-5">
         <div class="flex justify-center w-full border-b-4 border-black/5 py-6">
           <div class="flex items-center gap-5 font-bold text-2xl uppercase">
             <svg-icon [name]="'box'" />
-            <span class="after:absolute after:w-full after:h-2 relative">
+            <span
+              class="before:content-[''] before:h-1 before:rounded-full before:bg-main-yellow before:w-full before:absolute before:left-1/2 before:-bottom-6 before:-translate-x-1/2 relative">
               Carga
             </span>
           </div>
@@ -44,8 +64,10 @@
             <label class="font-bold text-xl whitespace-nowrap">Formato de containers:</label> <br />
             <div class="px-3">
               <div class="custom-select relative w-full">
-                <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-bold">
-                  <option>DRY</option>
+                <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-bold"
+                  [(ngModel)]="formato">
+                  <option [value]="0">DRY</option>
+                  <option [value]="1">REEFER</option>
                 </select>
               </div>
             </div>
@@ -54,8 +76,10 @@
             <label class="font-bold text-xl whitespace-nowrap">Tipo de container:</label> <br />
             <div class="px-3">
               <div class="custom-select relative w-full">
-                <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-bold">
-                  <option>20'</option>
+                <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-bold"
+                  [(ngModel)]="tipo">
+                  <option [value]="0">20'</option>
+                  <option [value]="1">40'</option>
                 </select>
               </div>
             </div>
@@ -66,23 +90,27 @@
             <label class="font-bold text-xl">Carregamento</label> <br />
             <div class="px-3">
               <div class="custom-select relative w-full">
-                <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-bold">
-                  <option>TEU's</option>
+                <select class="w-full border-2 border-black/5 p-4 rounded-lg appearance-none font-bold"
+                  [(ngModel)]="carregamento">
+                  <option [value]="0">TEU's</option>
+                  <option [value]="1">TON</option>
                 </select>
               </div>
             </div>
           </div>
           <div class="w-full lg:w-1/2 flex flex-col gap-2">
-            <label class="font-bold text-xl whitespace-nowrap">Quantidade (TEU’s)</label> <br />
+            <label class="font-bold text-xl whitespace-nowrap">Quantidade (TEU's)</label> <br />
             <div class="px-3">
-              <input type="text" class="w-1/3 border-2 h-full border-black/5 p-4 rounded-lg">
+              <input type="number" class="w-1/3 border-2 h-full border-black/5 p-4 rounded-lg" [(ngModel)]="quantidade">
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="w-full flex justify-center mt-20 mb-32">
-      <app-main-button />
+      <app-main-button (click)="criarRelatorio()">
+        Criar Relatório
+      </app-main-button>
     </div>
   </div>
 </section>

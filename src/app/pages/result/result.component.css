@@ -1,0 +1,25 @@
+.rota-pdf .img-wrapper {
+  position: relative;
+  display: block;
+  width: fit-content;
+}
+
+.rota-pdf .img-wrapper::after {
+  background-color: rgba(2, 57, 7, 0.9);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+}
+
+.rota-pdf .rota::after {
+  width: 100%;
+  height: 4px;
+  background-color: #FFBB00;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
