@@ -8,7 +8,7 @@ import { JsonPipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-result',
-  imports: [CommonModule, MainButtonComponent, JsonPipe],
+  imports: [CommonModule, MainButtonComponent],
   templateUrl: './result.component.html',
   styleUrl: './result.component.css'
 })
